@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
+    i18n_domain="collective.transmogrifier">
+
+  <include package="collective.transmogrifier"/>
+  <include package="collective.transmogrifier" file="meta.zcml"/>
+
+  <transmogrifier:registerConfig
+      name="oxfama.transmogrifier.export.content_to_csv"
+      title="Dump Plone content data to csv files"
+      description=""
+      configuration="content_to_csv.cfg"
+      />
+
+  <utility
+      component=".blueprints.CountLimitedSitewalkerSection"
+      name="oxfama.transmogrifier.sitewalker"
+      />
+
+  <utility
+      component=".blueprints.FileWriterSection"
+      name="oxfama.transmogrifier.filewriter"
+      />
+
+  <utility
+      component=".blueprints.CSVWriterSection"
+      name="oxfama.transmogrifier.csvwriter"
+      />
+
+  <utility
+      component=".blueprints.SchemaDictionarySection"
+      name="oxfama.transmogrifier.schemadumper"
+      />
+
+</configure>
